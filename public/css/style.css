@@ -1,0 +1,233 @@
+@font-face{
+	font-family:GretaTextArabicBold;
+	src:url(../fonts/GretaTextArabicBold.ttf);
+	font-style:normal;
+	font-weight:100;
+}
+@font-face{
+	font-family:dthuluth2;
+	src:url(../fonts/dthuluth2.ttf);
+	font-style:normal;
+	font-weight:100;
+}
+body{
+padding-top: 66px;
+	    font-size: 15px;
+	font-family:GretaTextArabicBold;
+
+}
+.navbar > .container .navbar-brand{
+	  margin-right: -78px;
+}
+.container {
+    width: 1267px;
+}
+.navbar-inverse .navbar-brand {
+    color: #96f37f;
+}
+.navbar-brand {
+    height: 52px;
+    padding: 24px 36px;
+    font-size: 35px;
+	
+	
+}
+.hr1 {
+  
+  border: groove;
+}
+.hr2 {
+  border-color: turquoise;
+}
+.row1 {
+  padding: 0px;
+}
+.btn_f {
+     
+	  padding: 0px 43px;
+  font-size: 35px;
+}
+.btn_width{
+	width: auto;
+}
+.navbar {
+    min-height: 66px;
+    margin-bottom: 27px;
+}
+.row{
+	
+	  padding: 15px;
+}
+.ilan{
+padding-top: 30px;
+	padding-bottom: 30px;
+background-image:url(../images/18.gif);
+	color: white;
+}
+.navbar-inverse .navbar-nav>.open>a, .navbar-inverse .navbar-nav>.open>a:focus, .navbar-inverse .navbar-nav>.open>a:hover {
+    color: #96f37f;
+    background-color: #222222;
+}
+.carousel-inner>.item>a>img, .carousel-inner>.item>img, .img-responsive, .thumbnail a>img, .thumbnail>img {
+    display: block;
+    width: 1920px;
+	height: 550px;
+}
+
+.fahd{
+color: azure;
+}
+.navbar-nav>li>a {
+    padding-top: 25px;
+    padding-bottom: 20px;
+}
+.navbar-inverse .navbar-nav>.active>a, .navbar-inverse .navbar-nav>.active>a:focus, .navbar-inverse .navbar-nav>.active>a:hover {
+    border-radius: 21px;
+    color: #96f37f;
+    background-color: rgb(70, 63, 63);
+    border: inset;
+    border-bottom-left-radius: initial;
+    border-top-style: hidden;
+    border-left: navajowhite;
+    border-bottom-right-radius: inherit;
+    border-color: rgba(232, 255, 124, 0.81);
+    border-right: aliceblue;
+}
+.navbar-inverse .navbar-nav>li>a {
+    color: #96f37f;
+}
+.navbar-inverse .navbar-nav>li>a>span {
+    color: #fff;
+}
+.dropdown-menu {
+    background-color: #222;
+  border-radius: 23px;
+	
+}
+.dropdown-menu>li>a {
+    color: #96f37f;
+	transition:1s;
+}
+.dropdown-menu>li>a:focus, .dropdown-menu>li>a:hover {
+    color: #ffffff;
+    text-decoration: none;
+    background-color: #463f3f;
+	padding-right: 35px;
+    border-radius: 23px;
+}
+.dropdown-menu .divider {
+    background-color: #96f37f;
+}
+.carousel-caption {
+    
+    bottom: 116px;
+    color: #fff;
+	font-size: 30px;
+	background-color:rgba(44, 60, 73, 0.4);
+	border-radius: 15%;
+	padding-left: 30px;
+	padding-right: 30px;
+
+}
+.form-group {
+	display: table;
+}
+
+.carousel-indicators li {
+   border: 1px solid #96f37f;
+    width: 25px;
+    height: 13px;
+   
+}
+.carousel-indicators .active {
+	background-color: #96f37f;
+     width: 26px;
+    height: 13px;
+}
+.cv{
+	padding: 20px;
+	background-image: url(../images/09.jpg);
+}
+.btn-def{
+  color: #333;
+  background-color: #E9FA51;
+  border-color: #ccc;
+}
+.bg-4 { 
+    background-color: #2f2f2f;
+    color: #ffffff;
+	height: 100px;
+	padding-top: 45px;
+}
+.bg-1 { 
+   font-size: 20px;
+}
+.fff{
+margin: 20px;
+}
+.navbar-inverse .navbar-brand span {
+    color: #ffffff;
+
+}
+.view_cv{
+	padding-top: 30px;
+	padding-bottom: 30px;
+background-image:url(../images/06.jpg);
+	color: white;
+}
+.stiil{
+	width: 30%;
+	height: 300px;
+  background-color: rgba(20, 23, 20, 0.62);
+  margin-right: 10px;
+	margin-left: 10px;
+	margin-bottom: 20px;
+	padding-right:20px;
+	padding-left:20px;
+  border-radius: 20%;
+}
+
+.card {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  background-color: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+	border-radius: 0.25rem;}
+
+.card-header
+{
+	  padding: 0.75rem 1.25rem;
+  margin-bottom: 0;
+  background-color: #f7f7f9;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+  height: 150px;
+  background-size: cover;
+	  color: azure;
+  padding-top: 60px;
+}
+.card-block{
+	  text-align: center !important;
+	  -webkit-box-flex: 1;
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+  padding: 1.25rem;
+}
+.card-profile-img{
+	     height: 165px;
+  width: 165px;
+  margin-top: -93px;
+  margin-bottom: 9px;
+  border: 6px solid #FFF;
+  border-radius: 34%;
+  box-shadow: 0 0px 86px rgba(0, 0, 0, 0.5);
+	 }
+.navbar-fixed-top .navbar-collapse {
+    padding-right: 0;
+    padding-left: 40px;
+}
