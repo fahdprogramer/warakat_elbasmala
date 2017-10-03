@@ -8,47 +8,36 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
-
-    <!-- Styles -->
+    <title>وراقة البسملة</title>
+	  <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+	 <!-- Fonts -->
+    <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/bootstrap-rtl.css') }}" rel="stylesheet">
+	<link href="{{ asset('css/style.css') }}" rel="stylesheet">
+	<link href="{{ asset('css/style_navbar.css') }}" rel="stylesheet">
+
+    <script src="{{ asset('js/jquery.min.js') }}"></script>
+
+  
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-default navbar-static-top">
-            <div class="container">
-                <div class="navbar-header">
-
-                    <!-- Collapsed Hamburger -->
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse">
-                        <span class="sr-only">Toggle Navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-
-                    <!-- Branding Image -->
-                    <a class="navbar-brand" href="{{ url('/') }}">
-                        {{ config('app.name', 'Laravel') }}
-                    </a>
-                </div>
-
-                <div class="collapse navbar-collapse" id="app-navbar-collapse">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="nav navbar-nav">
-                        &nbsp;
-                    </ul>
-
-                    <!-- Right Side Of Navbar -->
-                    <ul class="nav navbar-nav navbar-right">
+		<header id="fh5co-header" role="banner">
+		<nav class="navbar navbar-default" role="navigation">
+			<div class="container-fluid">
+				<div class="navbar-header"> 
+				<!-- Mobile Toggle Menu Button -->
+				<a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle" data-toggle="collapse" data-target="#fh5co-navbar" aria-expanded="false" aria-controls="navbar"><i></i></a>
+					 <ul class="nav navbar-nav navbar-right">
                         <!-- Authentication Links -->
                         @guest
-                            <li><a href="{{ route('login') }}">Login</a></li>
-                            <li><a href="{{ route('register') }}">Register</a></li>
+						 <li><a  href="{{ route('login') }}"><span>تسجيل الدخول <span class="border"></span></span></a></li>
+						 <li><a  href="{{ route('register') }}"><span>حساب جديد<span class="border"></span></span></a></li>
                         @else
                             <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                    {{ Auth::user()->name }} <span class="caret"></span>
+                                <a href="#" class="dropdown-toggle navbar-brand" data-toggle="dropdown" role="button" aria-expanded="false"><span>
+                                    {{ Auth::user()->name }} <span class="caret"></span></span>
                                 </a>
 
                                 <ul class="dropdown-menu" role="menu">
@@ -67,9 +56,26 @@
                             </li>
                         @endguest
                     </ul>
-                </div>
-            </div>
-        </nav>
+				
+				</div>
+				<div id="fh5co-navbar" class="navbar-collapse collapse">
+					<ul class="nav navbar-nav navbar-right">
+						@guest
+						
+						@else
+						<li class="active"><a href="index.html"><span>Home <span class="border"></span></span></a></li>
+						<li><a href="right-sidebar.html"><span>Right Sidebar <span class="border"></span></span></a></li>
+						<li><a href="left-sidebar.html"><span>Left Sidebar <span class="border"></span></span></a></li>
+						<li><a href="elements.html"><span>Elements <span class="border"></span></span></a></li>
+						@endguest
+					</ul>
+				</div>
+			</div>
+		</nav>
+	</header>
+	<!-- END .header -->
+		
+      
 
         @yield('content')
     </div>
