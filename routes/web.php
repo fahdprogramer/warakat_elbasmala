@@ -12,16 +12,14 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('pr_page');
 });
-Route::get('/cais', 'CaisController@cais');
+Route::get('/cais', 'CaisController@cais_get');
 Route::post('/cais/{y}/{m}/{d}', 'CaisController@cais');
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@index')->name('home'); //....زائد
 
-Route::get('/sijil', 'CaisController@sijil');
-
-Route::get('/show', 'CaisController@show');
+Route::get('/show', 'CaisController@show')->middleware('auth');
 
 Route::get('/show_cais/{id}', 'CaisController@show_cais');

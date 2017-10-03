@@ -1,22 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <!-- Theme Made By www.w3schools.com - No Copyright -->
-  <title>Bootstrap Theme Company Page</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-   <title>وراقة البسملة</title>
+@extends('layouts.app')
 
-    <!-- Fonts -->
-    <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/bootstrap-rtl.css') }}" rel="stylesheet">
+@section('content')
 
-    <script src="{{ asset('js/jquery.min.js') }}">
-
-
-
-
-    </script>
 
   <style>
 	  @font-face{
@@ -66,19 +51,18 @@
     }
   }
   </style>
-</head>
-<body>
+
 
 
 <!-- Container (Services Section) -->
 <div class="container-fluid text-center">
   <h2>وراقة البسملة  </h2>
-  <h4>شهر : </h4>
+  <h4> </h4>
   <br>
   <div class="row">
 	  @foreach ($cais as $mycais)
 	  <a href="/show_cais/{{ $mycais->id }}" >
-    <div class="col-sm-4">
+    <div class="col-sm-4" style="padding-bottom: 20px;">
       <span class="glyphicon glyphicon-leaf logo-small"></span>
       <h4>{{ $mycais->day.'/'.$mycais->month.'/'.$mycais->année }}</h4>
       <p>معاينة</p>
@@ -88,6 +72,4 @@
   <br><br>
   
 </div>
-
-</body>
-</html>
+@endsection

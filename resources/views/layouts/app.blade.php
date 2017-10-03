@@ -63,10 +63,9 @@
 						@guest
 						
 						@else
-						<li class="active"><a href="index.html"><span>Home <span class="border"></span></span></a></li>
-						<li><a href="right-sidebar.html"><span>Right Sidebar <span class="border"></span></span></a></li>
-						<li><a href="left-sidebar.html"><span>Left Sidebar <span class="border"></span></span></a></li>
-						<li><a href="elements.html"><span>Elements <span class="border"></span></span></a></li>
+						<li class="active"><a href="/show"><span>الصفحة الرئيسية<span class="border"></span></span></a></li>
+						<li><a href="cais"><span>تسجيل اليوم <span class="border"></span></span></a></li>
+						
 						@endguest
 					</ul>
 				</div>

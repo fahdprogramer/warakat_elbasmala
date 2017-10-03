@@ -48,12 +48,13 @@ public function cais($y,$m,$d,Request $request)
             $newcais->save();
 
         }
-        return view('show');
+        return view('show_cais');
     }
-	public function sijil()
+	public function cais_get()
     {
-        return view('sijil');
+        return view('welcome');
     }
+	
 	public function show()
     {
 		$cais=Cais::all();
