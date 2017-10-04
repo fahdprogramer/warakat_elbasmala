@@ -61,7 +61,7 @@
 				<div id="fh5co-navbar" class="navbar-collapse collapse">
 					<ul class="nav navbar-nav navbar-right">
 						@guest
-						
+						<li><a href=""><span>وراقة البسملة للأدوات المكتبية <span class="border"></span></span></a></li>
 						@else
 						<li class="active"><a href="/show"><span>الصفحة الرئيسية<span class="border"></span></span></a></li>
 						<li><a href="cais"><span>تسجيل اليوم <span class="border"></span></span></a></li>

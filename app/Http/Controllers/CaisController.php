@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use DB;
+use App\Quotation;
 use Illuminate\Http\Request;
 use App\Cais;
 use Auth;
@@ -57,7 +59,8 @@ public function cais($y,$m,$d,Request $request)
 	
 	public function show()
     {
-		$cais=Cais::all();
+		
+		$cais = DB::table('cais')->orderBy('id', 'desc')->get();
 		 $arr_c=Array('cais'=>$cais);		
 
         return view('show_cais',$arr_c);

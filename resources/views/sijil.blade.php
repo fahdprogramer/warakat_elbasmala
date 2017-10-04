@@ -63,10 +63,16 @@
     </style>
 </head>
 <body>
+	@isset($records)
+    // $records is defined and is not null...
+@endisset
 
-
+@empty()
+    
+@endempty
 <div class="title">
-    ورّاقة البسملة
+    
+	ورّاقة البسملة
     
 </div>
 <div class="container text-center">
@@ -143,7 +149,7 @@
                 <th>
 {{ $cais->mochtarayat_oridoo }},00 دج
                 </th>
-                <th>{{ ((($cais->mochtarayat_mobilis)+($cais_d->flixy_mobilis))-($cais->flixy_mobilis)) }},00 دج</th>
+                <th>{{ ((($cais->mochtarayat_oridoo)+($cais_d->flixy_oridoo))-($cais->flixy_oridoo)) }},00 دج</th>
             </tr>
 			</table>
 			كارت :
@@ -187,7 +193,7 @@
 <table class="table-striped table-hover" style="text-align:center;margin: 20px;" border='3' width="100%" >
 	<tr>
 
-                <th >{{ ((((($cais_d->nombre_carte_mobilis_500)-($cais->nombre_carte_mobilis_500))*500)+((($cais_d->nombre_carte_mobilis_200)-($cais->nombre_carte_mobilis_200))*200)+((($cais_d->nombre_carte_mobilis_100)-($cais->nombre_carte_mobilis_100))*100))+((($cais->mochtarayat_mobilis)+($cais_d->flixy_mobilis))-($cais->flixy_mobilis))+((($cais->mochtarayat_djezy)+($cais_d->flixy_djezy))-($cais->flixy_djezy))+((($cais->mochtarayat_mobilis)+($cais_d->flixy_mobilis))-($cais->flixy_mobilis)))}},00 دج</th>
+                <th >{{ ((((($cais_d->nombre_carte_mobilis_500)-($cais->nombre_carte_mobilis_500))*500)+((($cais_d->nombre_carte_mobilis_200)-($cais->nombre_carte_mobilis_200))*200)+((($cais_d->nombre_carte_mobilis_100)-($cais->nombre_carte_mobilis_100))*100))+((($cais->mochtarayat_mobilis)+($cais_d->flixy_mobilis))-($cais->flixy_mobilis))+((($cais->mochtarayat_djezy)+($cais_d->flixy_djezy))-($cais->flixy_djezy))+((($cais->mochtarayat_oridoo)+($cais_d->flixy_oridoo))-($cais->flixy_oridoo)))}},00 دج</th>
                 
 
             </tr>
@@ -196,7 +202,7 @@
 <table class="table-striped table-hover" style="text-align:center;margin: 20px;" border='3' width="100%" >
 	<tr>
 
-                <th >{{ ($cais->mablaghe_kouli)-(((((($cais_d->nombre_carte_mobilis_500)-($cais->nombre_carte_mobilis_500))*500)+((($cais_d->nombre_carte_mobilis_200)-($cais->nombre_carte_mobilis_200))*200)+((($cais_d->nombre_carte_mobilis_100)-($cais->nombre_carte_mobilis_100))*100))+((($cais->mochtarayat_mobilis)+($cais_d->flixy_mobilis))-($cais->flixy_mobilis))+((($cais->mochtarayat_djezy)+($cais_d->flixy_djezy))-($cais->flixy_djezy))+((($cais->mochtarayat_mobilis)+($cais_d->flixy_mobilis))-($cais->flixy_mobilis)))+($cais_d->ba9i_sondo9)) }},00 دج</th>
+                <th >{{ ($cais->mablaghe_kouli)-(((((($cais_d->nombre_carte_mobilis_500)-($cais->nombre_carte_mobilis_500))*500)+((($cais_d->nombre_carte_mobilis_200)-($cais->nombre_carte_mobilis_200))*200)+((($cais_d->nombre_carte_mobilis_100)-($cais->nombre_carte_mobilis_100))*100))+((($cais->mochtarayat_mobilis)+($cais_d->flixy_mobilis))-($cais->flixy_mobilis))+((($cais->mochtarayat_djezy)+($cais_d->flixy_djezy))-($cais->flixy_djezy))+((($cais->mochtarayat_oridoo)+($cais_d->flixy_oridoo))-($cais->flixy_oridoo)))+($cais_d->ba9i_sondo9)) }},00 دج</th>
                 
 
             </tr>
@@ -207,10 +213,10 @@
                 <th >سلفية </th>
                 <th>
 
-                    {{ $cais->flixy_oridoo }},00 دج
+                    {{ $cais->cout_emprent }},00 دج
 
                 </th>
-                <th><input  id="name" name="nom_emprent" placeholder="اسم المستلف " type="text" ></th>
+                <th>{{ $cais->nom_emprent }}</th>
             </tr>
 
 
@@ -218,31 +224,32 @@
 
             <tr>
 
-                <th colspan="2">مشتريات مختلفة </th>
+                <th>مشتريات مختلفة </th>
                 <th>
 
-                    <input  id="name" name="cout_mochtarayat_mokhtalifa" placeholder=" " type="number" >
-
+                    {{ $cais->cout_mochtarayat_mokhtalifa }},00 دج
                 </th>
-                <th><input  id="name" name="nom_mochtarayat_mokhtalifa" placeholder=" نوع المشتريات   " type="text" ></th>
+                <th>{{ $cais->nom_mochtarayat_mokhtalifa }}</th>
             </tr>
             <tr>
 
-                <th colspan="2">مواد ولوازم </th>
+                <th >مواد ولوازم </th>
                 <th>
 
-                    <input  id="name" name="cout_mawad_lawazim" placeholder=" " type="number" >
+{{ $cais->cout_mawad_lawazim }},00 دج
 
                 </th>
-                <th><input  id="name" name="nom_mawad_lawazim" placeholder="  نوع المواد" type="text" ></th>
+                <th>{{ $cais->nom_mawad_lawazim }}</th>
             </tr>
-            <tr>
+</table>
+<table class="table-striped table-hover" style="text-align:center;margin: 20px;" border='3' width="100%" >
+	
+	<tr>
 
-                <th colspan="2">الباقي في الصندوق</th>
+                <th>الباقي في الصندوق</th>
                 <th>
 
-                    <input  id="name" name="ba9i_sondo9" placeholder=" " type="number" >
-
+                    {{ $cais->ba9i_sondo9 }}
                 </th>
 
             </tr>

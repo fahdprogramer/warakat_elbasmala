@@ -549,7 +549,7 @@
   text-transform: uppercase;
   color: #000;
   font-weight: normal;
-   }
+}
 #fh5co-header > .navbar li a > span .border {
   display: block;
   height: 3px;
@@ -599,7 +599,7 @@
   font-weight: bold;
   letter-spacing: 2px;
   font-size: 20px;
-  font-family: "Montserrat", arial, sans-serif;
+
   color: #000; }
 #fh5co-header .navbar-brand:hover {
   color: #ccc; }
