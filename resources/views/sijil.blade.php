@@ -1,75 +1,23 @@
-<!doctype html>
-<html lang="{{ app()->getLocale() }}">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+@extends('layouts.app')
 
-    <title>وراقة البسملة</title>
-
-    <!-- Fonts -->
-    <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/bootstrap-rtl.css') }}" rel="stylesheet">
-
-    <script src="{{ asset('js/jquery.min.js') }}">
-
-    </script>
-
-    <!-- Styles -->
-    <style>
-        @font-face{
-            font-family:GretaTextArabicBold;
-            src:url(../fonts/GretaTextArabicBold.ttf);
-            font-style:normal;
-
-        }
-        @font-face{
-            font-family:dthuluth2;
-            src:url(../fonts/dthuluth2.ttf);
-            font-style:normal;
-
-        }
-        html, body {
-            background-color: #fff;
-            color:black;
-            font-family:GretaTextArabicBold;
-            font-size: 25px;
-            padding-bottom: 50px;
-
-
-        }
-        input{
-            border-radius: 20px;
-            margin: 10px;
-            text-align: center;
-
-        }
-        th{
-            text-align: center;
-        }
-
-
-        .title {
-            font-size: 60px;
-            text-align: center;
-
-        }
-        .bg1{
-            background-color: #f9f9f9;
-        }
+@section('content')
 
 
 
-    </style>
-</head>
-<body>
-	@isset($records)
-    // $records is defined and is not null...
-@endisset
+	@php if(empty($cais->mochtarayat_mobilis))$cais->mochtarayat_mobilis=0;@endphp
+	@php if(empty($cais->mochtarayat_djezy))$cais->mochtarayat_djezy=0;@endphp
+	@php if(empty($cais->mochtarayat_oridoo))$cais->mochtarayat_oridoo=0;@endphp
+	@php if(empty($cais->nombre_carte_mobilis_500))$cais->nombre_carte_mobilis_500=0;@endphp
+	@php if(empty($cais->nombre_carte_mobilis_200))$cais->nombre_carte_mobilis_200=0;@endphp
+	@php if(empty($cais->nombre_carte_mobilis_100))$cais->nombre_carte_mobilis_100=0;@endphp
+	@php if(empty($cais->mochtarayat_carte_mobilis))$cais->mochtarayat_carte_mobilis=0;@endphp
+	@php if(empty($cais->nom_emprent))$cais->nom_emprent='لم يستلف أحد';@endphp
+	@php if(empty($cais->cout_emprent))$cais->cout_emprent=0;@endphp
+	@php if(empty($cais->cout_mochtarayat_mokhtalifa))$cais->cout_mochtarayat_mokhtalifa=0;@endphp
+	@php if(empty($cais->nom_mochtarayat_mokhtalifa))$cais->nom_mochtarayat_mokhtalifa='لا توجد مشتريات';@endphp
+	@php if(empty($cais->nom_mawad_lawazim))$cais->nom_mawad_lawazim='لامواد ولا لوازم';@endphp
+	@php if(empty($cais->cout_mawad_lawazim))$cais->cout_mawad_lawazim=0;@endphp
 
-@empty()
-    
-@endempty
 <div class="title">
     
 	ورّاقة البسملة
@@ -256,12 +204,11 @@
 
         </table>
 
-            <button type="submit" class="btn btn-success btn-lg">حفظ السجل</button>
 
         </form>
     </div>
 
 </div>
 
-</body>
-</html>
+
+@endsection

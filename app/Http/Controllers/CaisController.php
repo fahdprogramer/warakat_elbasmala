@@ -21,7 +21,7 @@ public function cais($y,$m,$d,Request $request)
 			
 			
 			
-			
+			$this->validate($request,['name'=>'required','mablaghe_kouli'=>'required','flixy_mobilis'=>'required','flixy_djezy'=>'required','flixy_oridoo'=>'required','ba9i_sondo9'=>'required'],['name.required'=>'من فضلك ،يجب أن تقوم بملئ حقل إسم المسجل .','mablaghe_kouli.required'=>'من فضلك ،يجب أن تقوم بملئ حقل المبلغ الكلي  .','flixy_mobilis.required'=>'من فضلك ،يجب أن تقوم بملئ حقل فلكسي موبيليس .','flixy_djezy.required'=>'من فضلك ،يجب أن تقوم بملئ حقل فلكسي جيزي .','flixy_oridoo.required'=>'من فضلك ،يجب أن تقوم بملئ حقل فلكمي أوريدو .','ba9i_sondo9.required'=>'من فضلك ،يجب أن تقوم بملئ حقل الباقي في الصندوق .',]); 
 
             $newcais=new Cais();
             $newcais->name=$request->input('name');

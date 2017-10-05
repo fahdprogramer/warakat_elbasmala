@@ -36,7 +36,15 @@
 
             </tr>
         </table>
-
+@if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
 
         <table class="table-striped table-hover" style="text-align:center;margin: 20px;" border='2' width="100%" >
 
