@@ -11,15 +11,13 @@
 |
 */
 
-Route::get('/', function () {
-    return view('pr_page');
-});
-Route::get('/cais', 'CaisController@cais_get');
-Route::post('/cais/{y}/{m}/{d}', 'CaisController@cais');
+Route::get('/','TasjilControler@pr_page');
+Route::get('/cais', 'CaisController@show')->middleware('auth');
+Route::post('/cais/{y}/{m}/{d}', 'CaisController@cais')->middleware('auth');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home'); //....زائد
 
 Route::get('/show', 'CaisController@show')->middleware('auth');
 
-Route::get('/show_cais/{id}', 'CaisController@show_cais');
+Route::get('/show_cais/{id}', 'CaisController@show_cais')->middleware('auth');

@@ -11,7 +11,7 @@
 <div class="container text-center">
     <div class="row text-center">
 
-        <form action="cais/{{date('y')}}/{{date('m')}}/{{date('d')}}" method="post" >
+        <form action="cais/{{date('Y')}}/{{date('m')}}/{{date('d')}}" method="post" >
             {{ csrf_field() }}
 
 

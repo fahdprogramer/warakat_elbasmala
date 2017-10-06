@@ -50,7 +50,10 @@ public function cais($y,$m,$d,Request $request)
             $newcais->save();
 
         }
-        return view('show_cais');
+	
+		$cais = DB::table('cais')->orderBy('id', 'desc')->get();
+		 $arr_c=Array('cais'=>$cais);	
+         return view('show_cais',$arr_c);
     }
 	public function cais_get()
     {
