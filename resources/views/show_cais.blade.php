@@ -70,6 +70,13 @@
     @endforeach
   </div>
   <br><br>
+						
+
+	<ul class="pager">
+  <li ><a href="/last_month/{{$mycais->month}}/{{$mycais->année}}">الشهر السابق</a></li>
+		
+  <li ><a href="/next_month/{{$mycais->month}}/{{$mycais->année }}">الشهر الموالي </a></li>
+</ul>
   
 </div>
 @endsection

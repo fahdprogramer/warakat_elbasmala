@@ -14,7 +14,7 @@ class CaisController extends Controller
 
 
 
-public function cais($y,$m,$d,Request $request)
+public function cais(Request $request)
     {
 
         if($request->isMethod('post')){
@@ -25,9 +25,9 @@ public function cais($y,$m,$d,Request $request)
 
             $newcais=new Cais();
             $newcais->name=$request->input('name');
-            $newcais->day=$d;
-			$newcais->month=$m;
-			$newcais->année=$y;
+            $newcais->day=date('d');
+			$newcais->month=date('m');
+			$newcais->année=date('Y');
             $newcais->mablaghe_kouli=$request->input('mablaghe_kouli');
             $newcais->flixy_mobilis=$request->input('flixy_mobilis');
             $newcais->flixy_djezy=$request->input('flixy_djezy');
@@ -50,24 +50,23 @@ public function cais($y,$m,$d,Request $request)
             $newcais->save();
 
         }
-	
-		$cais = DB::table('cais')->orderBy('id', 'desc')->get();
+		$last_row=DB::table('cais')->orderBy('id', 'desc')->first();
+		$last_month=$last_row->month;
+		$last_année=$last_row->année;
+		$cais = DB::table('cais')->where([
+    ['month', '=', $last_month],
+    ['année', '=', $last_année],
+])->get();
 		 $arr_c=Array('cais'=>$cais);	
          return view('show_cais',$arr_c);
     }
-	public function cais_get()
+	
+	public function welcome()
     {
         return view('welcome');
     }
 	
-	public function show()
-    {
-		
-		$cais = DB::table('cais')->orderBy('id', 'desc')->get();
-		 $arr_c=Array('cais'=>$cais);		
-
-        return view('show_cais',$arr_c);
-    }
+	
 	
 	public function show_cais($id)
     {

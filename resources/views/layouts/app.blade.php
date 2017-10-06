@@ -22,7 +22,12 @@
   
 </head>
 <body>
-
+		@php	
+			$date = new DateTime('2006-12-12');
+			$date->modify('-1 Months');
+			$date=$date->format('Y-m-d');
+			echo $date;
+	@endphp
     <div id="app">
 		<header id="fh5co-header" role="banner">
 		<nav class="navbar navbar-default" role="navigation">
@@ -64,8 +69,8 @@
 						@guest
 						<li><a href=""><span>وراقة البسملة للأدوات المكتبية <span class="border"></span></span></a></li>
 						@else
-						<li class="active"><a href="/show"><span>الصفحة الرئيسية<span class="border"></span></span></a></li>
-						<li><a href="cais"><span>تسجيل اليوم <span class="border"></span></span></a></li>
+						<li class="active"><a href="/cais"><span>الصفحة الرئيسية<span class="border"></span></span></a></li>
+						<li><a href="welcome"><span>تسجيل اليوم <span class="border"></span></span></a></li>
 						
 						@endguest
 					</ul>
