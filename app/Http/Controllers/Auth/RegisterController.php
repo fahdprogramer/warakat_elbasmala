@@ -27,7 +27,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/show';
+    protected $redirectTo = '/cais';
 
     /**
      * Create a new controller instance.

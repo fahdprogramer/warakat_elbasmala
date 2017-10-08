@@ -52,12 +52,32 @@
   }
   </style>
 
-
-
+@php
+if (($cais[0]->month)==1){$m='جانفي';};
+if (($cais[0]->month)==2){$m='فيفري';};
+if (($cais[0]->month)==3){$m='مارس';};
+if (($cais[0]->month)==4){$m='أفريل';};
+if (($cais[0]->month)==5){$m='ماي';};
+if (($cais[0]->month)==6){$m='جوان';};
+if (($cais[0]->month)==7){$m='جويلية';};
+if (($cais[0]->month)==8){$m='أوت';};
+if (($cais[0]->month)==9){$m='سبتمبر';};
+if (($cais[0]->month)==10){$m='أكتوبر';};
+if (($cais[0]->month)==11){$m='نوفمبر';};
+if (($cais[0]->month)==12){$m='ديسمبر';};
+@endphp
+<ul class="pager">
+	@if($test_last!=0)
+  <li ><a href="/last_month/{{$cais[0]->month}}/{{$cais[0]->année}}">الشهر السابق</a></li>
+     @endif
+	@if($test_next!=0)
+  <li ><a href="/next_month/{{$cais[0]->month}}/{{$cais[0]->année }}">الشهر الموالي </a></li>
+	@endif
+</ul>
 <!-- Container (Services Section) -->
 <div class="container-fluid text-center">
-  <h2>وراقة البسملة  </h2>
-  <h4> </h4>
+
+  <h4> {{$m.' '.$cais[0]->année}} </h4>
   <br>
   <div class="row">
 	  @foreach ($cais as $mycais)
@@ -72,11 +92,7 @@
   <br><br>
 						
 
-	<ul class="pager">
-  <li ><a href="/last_month/{{$mycais->month}}/{{$mycais->année}}">الشهر السابق</a></li>
-		
-  <li ><a href="/next_month/{{$mycais->month}}/{{$mycais->année }}">الشهر الموالي </a></li>
-</ul>
+
   
 </div>
 @endsection

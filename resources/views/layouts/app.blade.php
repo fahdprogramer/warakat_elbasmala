@@ -22,12 +22,7 @@
   
 </head>
 <body>
-		@php	
-			$date = new DateTime('2006-12-12');
-			$date->modify('-1 Months');
-			$date=$date->format('Y-m-d');
-			echo $date;
-	@endphp
+		
     <div id="app">
 		<header id="fh5co-header" role="banner">
 		<nav class="navbar navbar-default" role="navigation">
@@ -38,8 +33,8 @@
 					 <ul class="nav navbar-nav navbar-right">
                         <!-- Authentication Links -->
                         @guest
-						 <li><a  href="{{ route('login') }}"><span>تسجيل الدخول <span class="border"></span></span></a></li>
-						 <li><a  href="{{ route('register') }}"><span>حساب جديد<span class="border"></span></span></a></li>
+						 <li {{{ (Request::is('login') ? 'class=active' : '') }}} > <a  href="{{ route('login') }}"><span>تسجيل الدخول <span class="border"></span></span></a></li>
+						 <li {{{ (Request::is('register') ? 'class=active' : '') }}}><a  href="{{ route('register') }}"><span>حساب جديد<span class="border"></span></span></a></li>
                         @else
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle navbar-brand" data-toggle="dropdown" role="button" aria-expanded="false"><span>
@@ -67,10 +62,11 @@
 				<div id="fh5co-navbar" class="navbar-collapse collapse">
 					<ul class="nav navbar-nav navbar-right">
 						@guest
-						<li><a href=""><span>وراقة البسملة للأدوات المكتبية <span class="border"></span></span></a></li>
+						<li {{{ (Request::is('/') ? 'class=active' : '') }}} ><a href="/"><span>وراقة البسملة للأدوات المكتبية <span class="border"></span></span></a></li>
+						
 						@else
-						<li class="active"><a href="/cais"><span>الصفحة الرئيسية<span class="border"></span></span></a></li>
-						<li><a href="welcome"><span>تسجيل اليوم <span class="border"></span></span></a></li>
+						<li {{{ (Request::is('cais') ? 'class=active' : '') }}}><a href="/cais"><span>الصفحة الرئيسية<span class="border"></span></span></a></li>
+						<li {{{ (Request::is('welcome') ? 'class=active' : '') }}}><a href="welcome"><span>تسجيل اليوم <span class="border"></span></span></a></li>
 						
 						@endguest
 					</ul>

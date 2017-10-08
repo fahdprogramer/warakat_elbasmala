@@ -50,6 +50,7 @@ public function cais(Request $request)
             $newcais->save();
 
         }
+		$first_row=DB::table('cais')->first();
 		$last_row=DB::table('cais')->orderBy('id', 'desc')->first();
 		$last_month=$last_row->month;
 		$last_année=$last_row->année;
@@ -57,8 +58,10 @@ public function cais(Request $request)
     ['month', '=', $last_month],
     ['année', '=', $last_année],
 ])->get();
-		 $arr_c=Array('cais'=>$cais);	
-         return view('show_cais',$arr_c);
+		 $arr_c=Array('cais'=>$cais);
+	$test_last=1;
+	if(empty($first_row->name)) { $test_last=0; };
+         return view('show_cais',$arr_c,['test_next'=>'0','test_last'=>$test_last]);
     }
 	
 	public function welcome()
