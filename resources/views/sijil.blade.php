@@ -18,11 +18,7 @@
 	@php if(empty($cais->nom_mawad_lawazim))$cais->nom_mawad_lawazim='لامواد ولا لوازم';@endphp
 	@php if(empty($cais->cout_mawad_lawazim))$cais->cout_mawad_lawazim=0;@endphp
 
-<div class="title">
-    
-	ورّاقة البسملة
-    
-</div>
+
 <div class="container text-center">
     <div class="row text-center">
 
@@ -82,7 +78,8 @@
             <tr>
 
                 <th >جازي</th>
-				<th >{{ $cais->flixy_djezy }},00 دج</th>
+				<th >{{ $cais->flixy_djezy }},00 دج
+				</th>
                 <th>
 
                {{ $cais->mochtarayat_djezy }},00 دج
@@ -197,7 +194,7 @@
                 <th>الباقي في الصندوق</th>
                 <th>
 
-                    {{ $cais->ba9i_sondo9 }}
+                    {{ $cais->ba9i_sondo9 }} ,00 دج
                 </th>
 
             </tr>

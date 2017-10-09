@@ -98,7 +98,7 @@ if (($cais[0]->month)==12){$m='ديسمبر';};
 	  @else
 	  <a href="/show_cais/{{ $mycais->id }}"  >
     <div class="col-sm-4 text-success" style="padding-bottom: 70px;">
-      <span class="glyphicon glyphicon-leaf logo-small" style="font-size:60px;"></span>
+      <span class="glyphicon glyphicon-leaf logo-small" style="font-size:50px;"></span>
       <h2>{{ $mycais->année.'/'.$mycais->month.'/'.$mycais->day }}</h2>
      
 		  </div></a>

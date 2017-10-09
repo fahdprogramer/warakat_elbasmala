@@ -34,7 +34,7 @@
                         <!-- Authentication Links -->
                         @guest
 						 <li {{{ (Request::is('login') ? 'class=active' : '') }}} > <a  href="{{ route('login') }}"><span><span class="glyphicon glyphicon glyphicon-log-in" aria-hidden="true"></span>  تسجيل الدخول <span class="border"></span></span></a></li>
-						 <li {{{ (Request::is('register') ? 'class=active' : '') }}}><a  href="{{ route('register') }}"><span><span class="glyphicon glyphicon glyphicon-log-out" aria-hidden="true"></span> حساب جديد<span class="border"></span></span></a></li>
+						 
                         @else
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle navbar-brand" data-toggle="dropdown" role="button" aria-expanded="false"><span>

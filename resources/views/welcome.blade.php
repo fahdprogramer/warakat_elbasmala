@@ -4,9 +4,7 @@
 
 
 
-<div class="title">
-       
-</div>
+
 <div class="container text-center" style="padding:25px;">
     <div class="row text-center">
 
@@ -105,8 +103,8 @@
                 <th>
 
                     <input value="{{ old('cout_emprent') }}" class="styleinput"  id="name" name="cout_emprent" placeholder="مقدار السلفية" type="number" >
-
                 </th>
+				
                 <th><input value="{{ old('nom_emprent') }}" class="styleinput"  id="name" name="nom_emprent" placeholder="اسم المستلف " type="text" ></th>
             </tr>
 

@@ -16,18 +16,24 @@ class CaisController extends Controller
 
 public function cais(Request $request)
     {
-
+$count= DB::table('cais')->count();
         if($request->isMethod('post')){
 			
 			
 			
-			$this->validate($request,['name'=>'required','mablaghe_kouli'=>'required','flixy_mobilis'=>'required','flixy_djezy'=>'required','flixy_oridoo'=>'required','ba9i_sondo9'=>'required'],['name.required'=>'من فضلك ،يجب أن تقوم بملئ حقل إسم المسجل .','mablaghe_kouli.required'=>'من فضلك ،يجب أن تقوم بملئ حقل المبلغ الكلي  .','flixy_mobilis.required'=>'من فضلك ،يجب أن تقوم بملئ حقل فلكسي موبيليس .','flixy_djezy.required'=>'من فضلك ،يجب أن تقوم بملئ حقل فلكسي جيزي .','flixy_oridoo.required'=>'من فضلك ،يجب أن تقوم بملئ حقل فلكمي أوريدو .','ba9i_sondo9.required'=>'من فضلك ،يجب أن تقوم بملئ حقل الباقي في الصندوق .',]); 
+			$this->validate($request,['name'=>'required','mablaghe_kouli'=>'required','flixy_mobilis'=>'required','flixy_djezy'=>'required','flixy_oridoo'=>'required','ba9i_sondo9'=>'required'],['name.required'=>'من فضلك ،يجب أن تقوم بملئ حقل إسم المسجل .','mablaghe_kouli.required'=>'من فضلك ،يجب أن تقوم بملئ حقل المبلغ الكلي  .','flixy_mobilis.required'=>'من فضلك ،يجب أن تقوم بملئ حقل فلكسي موبيليس .','flixy_djezy.required'=>'من فضلك ،يجب أن تقوم بملئ حقل فلكسي جيزي .','flixy_oridoo.required'=>'من فضلك ،يجب أن تقوم بملئ حقل فلكسي أوريدو .','ba9i_sondo9.required'=>'من فضلك ،يجب أن تقوم بملئ حقل الباقي في الصندوق .',]); 
 
             $newcais=new Cais();
             $newcais->name=$request->input('name');
+			if ($count==0){
+			$newcais->day=date("d", strtotime( '-1 days' ) );
+			$newcais->month=date('m', strtotime( '-1 days' ) );
+			$newcais->année=date('Y', strtotime( '-1 days' ) );
+		}else{
             $newcais->day=date('d');
 			$newcais->month=date('m');
 			$newcais->année=date('Y');
+			}
             $newcais->mablaghe_kouli=$request->input('mablaghe_kouli');
             $newcais->flixy_mobilis=$request->input('flixy_mobilis');
             $newcais->flixy_djezy=$request->input('flixy_djezy');
@@ -48,9 +54,10 @@ public function cais(Request $request)
             $newcais->cout_mawad_lawazim=$request->input('cout_mawad_lawazim');
             $newcais->id_user=Auth::user()->id;         
             $newcais->save();
+			$count=1;
 
         }
-	$count= DB::table('cais')->count();
+	
 		if ($count==0){
 			return view('first_day');
 		}else{
@@ -88,11 +95,17 @@ public function cais(Request $request)
 	
 	public function show_cais($id)
     {
+		if ($id==1){
+		$first_row=DB::table('cais')->first();
+			return view('sijil_first_day',['cais'=>$first_row]);
+		}else{
 		$cais=Cais::find($id);
 		 $arr=Array('cais'=>$cais);
-		$i=$id-1;
+		$get_id=DB::table('cais')->whereBetween('id', [1, $id])->whereNotIn('name', ['0'])->orderBy('id', 'desc')->get();
+		$i=$get_id[1]->id;
 		$cais_d=Cais::find($i);
 		 $arr_d=Array('cais_d'=>$cais_d);
 		return view('sijil',$arr,$arr_d);
-    }
+    	}
+	}
 }
