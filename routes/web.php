@@ -20,6 +20,13 @@ Route::get('/home', 'HomeController@index')->name('home'); //....زائد
 
 Route::get('/welcome', 'CaisController@welcome')->middleware('auth');
 
+Route::get('/chois', 'CaisController@chois')->middleware('auth');
+
+Route::get('/wara9at_elbasmala', 'Wara9at_elbasmalaController@wara9at_elbasmala');
+
+Route::get('/controle', 'Wara9at_elbasmalaController@controle');
+Route::post('/updat_role/{user}', 'Wara9at_elbasmalaController@updat_user');
+
 Route::get('/show_cais/{id}', 'CaisController@show_cais')->middleware('auth');
 
 Route::get('/last_month/{l_m}/{l_y}', 'PaginationController@last_month')->middleware('auth');

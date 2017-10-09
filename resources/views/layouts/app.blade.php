@@ -33,8 +33,8 @@
 					 <ul class="nav navbar-nav navbar-right">
                         <!-- Authentication Links -->
                         @guest
-						 <li {{{ (Request::is('login') ? 'class=active' : '') }}} > <a  href="{{ route('login') }}"><span>تسجيل الدخول <span class="border"></span></span></a></li>
-						 <li {{{ (Request::is('register') ? 'class=active' : '') }}}><a  href="{{ route('register') }}"><span>حساب جديد<span class="border"></span></span></a></li>
+						 <li {{{ (Request::is('login') ? 'class=active' : '') }}} > <a  href="{{ route('login') }}"><span><span class="glyphicon glyphicon glyphicon-log-in" aria-hidden="true"></span>  تسجيل الدخول <span class="border"></span></span></a></li>
+						 <li {{{ (Request::is('register') ? 'class=active' : '') }}}><a  href="{{ route('register') }}"><span><span class="glyphicon glyphicon glyphicon-log-out" aria-hidden="true"></span> حساب جديد<span class="border"></span></span></a></li>
                         @else
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle navbar-brand" data-toggle="dropdown" role="button" aria-expanded="false"><span>
@@ -46,7 +46,7 @@
                                         <a href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                            Logout
+                                            تسجيل الخروج 
                                         </a>
 
                                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
@@ -65,9 +65,12 @@
 						<li {{{ (Request::is('/') ? 'class=active' : '') }}} ><a href="/"><span>وراقة البسملة للأدوات المكتبية <span class="border"></span></span></a></li>
 						
 						@else
-						<li {{{ (Request::is('cais') ? 'class=active' : '') }}}><a href="/cais"><span>الصفحة الرئيسية<span class="border"></span></span></a></li>
-						<li {{{ (Request::is('welcome') ? 'class=active' : '') }}}><a href="welcome"><span>تسجيل اليوم <span class="border"></span></span></a></li>
+						<li {{{ (Request::is('cais') ? 'class=active' : '') }}}{{{ (Request::is('last_month/*/*') ? 'class=active' : '') }}}{{{ (Request::is('next_month/*/*') ? 'class=active' : '') }}}><a href="/cais"><span><span class="glyphicon glyphicon glyphicon-home" aria-hidden="true"></span>     الصفحة الرئيسية<span class="border"></span></span></a></li>
 						
+						<li {{{ (Request::is('welcome') ? 'class=active' : '') }}}><a href="/welcome"><span><span class="glyphicon glyphicon-edit" aria-hidden="true"></span>     تسجيل اليوم <span class="border"></span></span></a></li>
+						@if(Auth::user()->role=='1')
+						<li {{{ (Request::is('controle') ? 'class=active' : '') }}}><a href="/controle"><span><span class="glyphicon  glyphicon-cog" aria-hidden="true"></span>    التحكم <span class="border"></span></span></a></li>
+						@endif
 						@endguest
 					</ul>
 				</div>

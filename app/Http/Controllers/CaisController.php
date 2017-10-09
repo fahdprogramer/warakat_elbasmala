@@ -50,6 +50,10 @@ public function cais(Request $request)
             $newcais->save();
 
         }
+	$count= DB::table('cais')->count();
+		if ($count==0){
+			return view('first_day');
+		}else{
 		$first_row=DB::table('cais')->first();
 		$last_row=DB::table('cais')->orderBy('id', 'desc')->first();
 		$last_month=$last_row->month;
@@ -60,14 +64,25 @@ public function cais(Request $request)
 ])->get();
 		 $arr_c=Array('cais'=>$cais);
 	$test_last=1;
-	if(empty($first_row->name)) { $test_last=0; };
+	if(($last_month==$first_row->month)&&($last_année==$first_row->année)) { $test_last=0; };
          return view('show_cais',$arr_c,['test_next'=>'0','test_last'=>$test_last]);
+			};
     }
 	
-	public function welcome()
-    {
-        return view('welcome');
-    }
+		public function welcome()
+		{
+			$count= DB::table('cais')->count();
+		if ($count==0){
+			return view('cais_vide');
+		}else{
+			return view('welcome');
+		};
+		}
+	
+	public function chois()
+		{
+			return view('chois');
+		}
 	
 	
 	

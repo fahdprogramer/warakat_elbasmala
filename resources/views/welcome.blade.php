@@ -5,10 +5,9 @@
 
 
 <div class="title">
-    ورّاقة البسملة
-    
+       
 </div>
-<div class="container text-center">
+<div class="container text-center" style="padding:25px;">
     <div class="row text-center">
 
         <form action="cais" method="post" >

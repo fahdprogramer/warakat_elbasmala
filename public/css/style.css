@@ -30,11 +30,6 @@
         }
 
 
-        .title {
-            font-size: 60px;
-            text-align: center;
-
-        }
         .bg1{
             background-color: #f9f9f9;
         }
@@ -64,7 +59,10 @@
             }
 
             .title {
-                font-size: 84px;
+                font-size: 30px;
+				text-align: center;
+				padding-top: 250px;
+				
             }
 
             .links > a {
