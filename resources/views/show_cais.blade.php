@@ -91,6 +91,7 @@ if (($cais[0]->month)==12){$m='ديسمبر';};
   <div class="row">
 	  @foreach ($cais as $mycais)
 	  @if($mycais->name=='0')
+          
 	  @if(Auth::user()->role=='1')
 	  <a href="/show_cais/{{ $mycais->année }}/{{$mycais->month}}/{{$mycais->day}}"  >
 		  @endif
@@ -102,7 +103,24 @@ if (($cais[0]->month)==12){$m='ديسمبر';};
 	  @if(Auth::user()->role=='1')
 	  </a>
 	  @endif
-	  @else
+          
+          
+          
+	  @elseif($mycais->name=='0123456789')
+            @if(Auth::user()->role=='1')
+	  <a href="/info_mounassaba/{{ $mycais->id }}"  >
+		  @endif
+    <div class="col-sm-4 text-info" style="padding-bottom: 70px;">
+      <span class="glyphicon glyphicon-leaf logo-small" style="font-size:50px;"></span>
+      <h2>{{ $mycais->année.'/'.$mycais->month.'/'.$mycais->day }}</h2>
+     
+		  </div>
+		  @if(Auth::user()->role=='1')
+	  </a>
+	  @endif
+          
+          @else
+          
 	  @if(Auth::user()->role=='1')
 	  <a href="/show_cais/{{ $mycais->id }}"  >
 		  @endif
@@ -114,6 +132,7 @@ if (($cais[0]->month)==12){$m='ديسمبر';};
 		  @if(Auth::user()->role=='1')
 	  </a>
 	  @endif
+          
 	  @endif
     @endforeach
   </div>

@@ -141,10 +141,33 @@ $count= DB::table('cais')->count();
 				
 		}
 	
-	
-	
-	
-	public function show_cais($id)
+                public function mounassaba($y,$m,$d,Request $request) {
+                    if (Auth::user()->role!=1){
+			return redirect('/');
+		};
+                 if($request->isMethod('post')){
+                     $this->validate($request,['nom_mochtarayat_mokhtalifa'=>'required'],['nom_mochtarayat_mokhtalifa.required'=>'من فضلك ،يجب أن تقوم بكتابة مناسبة او سبب التعطل عن العمل .']); 
+            DB::table('cais')->where([
+                ['day', '=', $d],
+                ['month', '=', $m],
+                ['année', '=', $y],
+])->update([
+        'name'=>'0123456789',
+		'nom_mochtarayat_mokhtalifa'=>$request->input('nom_mochtarayat_mokhtalifa'),
+		'id_user'=>(Auth::user()->id) ]);
+            
+                 }else{
+                     return view('mounassaba',['y'=>$y,'m'=>$m,'d'=>$d]);
+                 }
+                    
+                }
+                public function info_mounassaba($id) {
+                    $cais=Cais::find($id);
+		 $arr=Array('cais'=>$cais);
+                    return view('info_mounassaba',$arr);
+                }
+                
+	public function show_cais($id,Request $request)
     {
 		if (Auth::user()->role!=1){
 			return redirect('/');
@@ -159,7 +182,12 @@ $count= DB::table('cais')->count();
 		$i=$get_id[1]->id;
 		$cais_d=Cais::find($i);
 		 $arr_d=Array('cais_d'=>$cais_d);
-		return view('sijil',$arr,$arr_d);
+                 if ($request->is('show_cais/*')) {
+   return view('sijil',$arr,$arr_d);
+}else{
+    return view('edit_day',$arr,$arr_d);
+}
+		
     	}
 	}
 }

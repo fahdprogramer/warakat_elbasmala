@@ -18,8 +18,8 @@
 	@php if(empty($cais->nom_mawad_lawazim))$cais->nom_mawad_lawazim='لامواد ولا لوازم';@endphp
 	@php if(empty($cais->cout_mawad_lawazim))$cais->cout_mawad_lawazim=0;@endphp
         <div class="text-left" style="padding-left: 20px; ">
-<a href="#" class="btn btn-danger btn-lg">
-      <span class="glyphicon glyphicon-wrench"></span> 
+            <a href="/edit_day/{{$cais->id}}" class="btn btn-danger btn-lg" >
+      <span class="glyphicon glyphicon-wrench" style="font-size:25px;"></span> 
     </a>
             </div>
 <div class="container text-center">

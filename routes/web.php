@@ -28,14 +28,19 @@ Route::get('/welcome', 'CaisController@welcome')->middleware('auth');
 Route::get('/wara9at_elbasmala', 'Wara9at_elbasmalaController@wara9at_elbasmala');
 Route::get('/nouveau_utilisateur', 'Wara9at_elbasmalaController@nouveau_utilisateur')->middleware('auth');
 
-Route::get('/controle', 'Wara9at_elbasmalaController@controle');
-Route::post('/updat_role/{user}', 'Wara9at_elbasmalaController@updat_user');
+Route::get('/controle', 'Wara9at_elbasmalaController@controle')->middleware('auth');
+Route::post('/updat_role/{user}', 'Wara9at_elbasmalaController@updat_user')->middleware('auth');
 
-Route::get('/edit_sijil/{yers}/{month}/{day}', 'CaisController@nouveau_sijil');
+Route::get('/edit_sijil/{yers}/{month}/{day}', 'CaisController@nouveau_sijil')->middleware('auth');
 
-Route::post('/edit_sijil/{yers}/{month}/{day}', 'CaisController@nouveau_sijil');
+Route::post('/edit_sijil/{yers}/{month}/{day}', 'CaisController@nouveau_sijil')->middleware('auth');
 
-Route::get('/show_cais/{id}', 'CaisController@show_cais')->middleware('auth');
+Route::get('/mounassaba/{yers}/{month}/{day}', 'CaisController@mounassaba')->middleware('auth');
+Route::post('/mounassaba/{yers}/{month}/{day}', 'CaisController@mounassaba')->middleware('auth');
+
+Route::get('/show_cais/{id}', 'CaisController@show_cais')->middleware('auth')->middleware('auth');
+Route::get('/info_mounassaba/{id}', 'CaisController@info_mounassaba')->middleware('auth')->middleware('auth');
+Route::get('/edit_day/{id}', 'CaisController@show_cais')->middleware('auth')->middleware('auth');
 Route::get('/show_cais/{yers}/{month}/{day}', 'CaisController@edit_sijil')->middleware('auth');
 
 Route::get('/last_month/{l_m}/{l_y}', 'PaginationController@last_month')->middleware('auth');
