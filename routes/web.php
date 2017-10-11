@@ -14,20 +14,29 @@
 Route::get('/','TasjilControler@pr_page');
 Route::get('/cais', 'CaisController@cais')->middleware('auth');
 Route::post('/cais', 'CaisController@cais')->middleware('auth');
+
+Route::post('/cais_edit', 'CaisController@cais_edit')->middleware('auth');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home'); //....زائد
 
 Route::get('/welcome', 'CaisController@welcome')->middleware('auth');
 
-Route::get('/chois', 'CaisController@chois')->middleware('auth');
+
 
 Route::get('/wara9at_elbasmala', 'Wara9at_elbasmalaController@wara9at_elbasmala');
+Route::get('/nouveau_utilisateur', 'Wara9at_elbasmalaController@nouveau_utilisateur')->middleware('auth');
 
 Route::get('/controle', 'Wara9at_elbasmalaController@controle');
 Route::post('/updat_role/{user}', 'Wara9at_elbasmalaController@updat_user');
 
+Route::get('/edit_sijil/{yers}/{month}/{day}', 'CaisController@nouveau_sijil');
+
+Route::post('/edit_sijil/{yers}/{month}/{day}', 'CaisController@nouveau_sijil');
+
 Route::get('/show_cais/{id}', 'CaisController@show_cais')->middleware('auth');
+Route::get('/show_cais/{yers}/{month}/{day}', 'CaisController@edit_sijil')->middleware('auth');
 
 Route::get('/last_month/{l_m}/{l_y}', 'PaginationController@last_month')->middleware('auth');
 Route::get('/next_month/{n_m}/{n_y}', 'PaginationController@next_month')->middleware('auth');

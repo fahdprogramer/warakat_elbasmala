@@ -8,7 +8,7 @@
 <div class="container text-center" style="padding:25px;">
     <div class="row text-center">
 
-        <form action="cais" method="post" >
+        <form action="/cais" method="post" >
             {{ csrf_field() }}
 
 

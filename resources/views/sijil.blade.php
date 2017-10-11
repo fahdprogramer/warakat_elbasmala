@@ -17,9 +17,13 @@
 	@php if(empty($cais->nom_mochtarayat_mokhtalifa))$cais->nom_mochtarayat_mokhtalifa='لا توجد مشتريات';@endphp
 	@php if(empty($cais->nom_mawad_lawazim))$cais->nom_mawad_lawazim='لامواد ولا لوازم';@endphp
 	@php if(empty($cais->cout_mawad_lawazim))$cais->cout_mawad_lawazim=0;@endphp
-
-
+        <div class="text-left" style="padding-left: 20px; ">
+<a href="#" class="btn btn-danger btn-lg">
+      <span class="glyphicon glyphicon-wrench"></span> 
+    </a>
+            </div>
 <div class="container text-center">
+    
     <div class="row text-center">
 
         <form action="cais" method="post" >

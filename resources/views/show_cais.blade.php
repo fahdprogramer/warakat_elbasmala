@@ -66,7 +66,9 @@ if (($cais[0]->month)==10){$m='أكتوبر';};
 if (($cais[0]->month)==11){$m='نوفمبر';};
 if (($cais[0]->month)==12){$m='ديسمبر';};
 @endphp
-<ul class="pager"><div class="row">
+<ul class="pager">
+    
+    <div class="row">
 	<div class="col-sm-4 text-danger" >
 	@if($test_last!=0)
   <li ><a href="/last_month/{{$cais[0]->month}}/{{$cais[0]->année}}"><span class="glyphicon glyphicon glyphicon-arrow-right" aria-hidden="true"></span>    الشهر السابق</a></li>
@@ -89,19 +91,29 @@ if (($cais[0]->month)==12){$m='ديسمبر';};
   <div class="row">
 	  @foreach ($cais as $mycais)
 	  @if($mycais->name=='0')
-	  <a href="/show_cais/{{ $mycais->id }}"  >
+	  @if(Auth::user()->role=='1')
+	  <a href="/show_cais/{{ $mycais->année }}/{{$mycais->month}}/{{$mycais->day}}"  >
+		  @endif
     <div class="col-sm-4 text-danger" style="padding-bottom: 70px;">
       <span class="glyphicon glyphicon-leaf logo-small" style="font-size:50px;"></span>
       <h2>{{ $mycais->année.'/'.$mycais->month.'/'.$mycais->day }}</h2>
    
-		  </div></a>
+		  </div>
+	  @if(Auth::user()->role=='1')
+	  </a>
+	  @endif
 	  @else
+	  @if(Auth::user()->role=='1')
 	  <a href="/show_cais/{{ $mycais->id }}"  >
+		  @endif
     <div class="col-sm-4 text-success" style="padding-bottom: 70px;">
       <span class="glyphicon glyphicon-leaf logo-small" style="font-size:50px;"></span>
       <h2>{{ $mycais->année.'/'.$mycais->month.'/'.$mycais->day }}</h2>
      
-		  </div></a>
+		  </div>
+		  @if(Auth::user()->role=='1')
+	  </a>
+	  @endif
 	  @endif
     @endforeach
   </div>
