@@ -24,7 +24,7 @@ Route::get('/home', 'HomeController@index')->name('home'); //....زائد
 Route::get('/welcome', 'CaisController@welcome')->middleware('auth');
 
 
-
+Route::get('/total_sijil', 'TablecontroleController@total_sijil')->middleware('auth');
 Route::get('/wara9at_elbasmala', 'Wara9at_elbasmalaController@wara9at_elbasmala');
 Route::get('/nouveau_utilisateur', 'Wara9at_elbasmalaController@nouveau_utilisateur')->middleware('auth');
 
@@ -44,4 +44,6 @@ Route::get('/edit_day/{id}', 'CaisController@show_cais')->middleware('auth')->mi
 Route::get('/show_cais/{yers}/{month}/{day}', 'CaisController@edit_sijil')->middleware('auth');
 
 Route::get('/last_month/{l_m}/{l_y}', 'PaginationController@last_month')->middleware('auth');
+Route::get('/last_month_p/{l_m}/{l_y}', 'TablecontroleController@last_month')->middleware('auth');
 Route::get('/next_month/{n_m}/{n_y}', 'PaginationController@next_month')->middleware('auth');
+Route::get('/next_month_p/{n_m}/{n_y}', 'TablecontroleController@next_month')->middleware('auth');

@@ -7,6 +7,7 @@ use App\Quotation;
 use Illuminate\Http\Request;
 use App\Cais;
 use Auth;
+use DateTime;
 class CaisController extends Controller
 {
     //
@@ -79,9 +80,18 @@ $count= DB::table('cais')->count();
 		public function welcome()
 		{
 			$count= DB::table('cais')->count();
+                        $last_row=DB::table('cais')->orderBy('id', 'desc')->first();
+                $last_day=$last_row->day;
+		$last_month=$last_row->month;
+		$last_année=$last_row->année;
+                $id=$last_row->id;
+                $datetime = new DateTime($last_année.'-'.$last_month.'-'.$last_day);
+                $datetime_today = new DateTime(date('Y').'-'.date('m').'-'.date('d'));
 		if ($count==0){
 			return view('cais_vide');
-		}else{
+                }elseif($datetime==$datetime_today){
+                    return redirect('/show_cais/'.$id);
+                }else{
 			return view('welcome');
 		};
 		}

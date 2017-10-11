@@ -70,7 +70,10 @@
 						<li {{{ (Request::is('welcome') ? 'class=active' : '') }}}><a href="/welcome"><span><span class="glyphicon glyphicon-edit" aria-hidden="true"></span>     تسجيل اليوم <span class="border"></span></span></a></li>
 						@if(Auth::user()->role=='1')
 						<li {{{ (Request::is('controle') ? 'class=active' : '') }}}><a href="/controle"><span><span class="glyphicon  glyphicon-cog" aria-hidden="true"></span>    التحكم <span class="border"></span></span></a></li>
+						
+						<li {{{ (Request::is('total_sijil') ? 'class=active' : '') }}}><a href="/total_sijil"><span><span class="glyphicon glyphicon-equalizer" aria-hidden="true"></span> الجدول الشهري <span class="border"></span></span></a></li>
 						@endif
+                                                
 						@endguest
 					</ul>
 				</div>
