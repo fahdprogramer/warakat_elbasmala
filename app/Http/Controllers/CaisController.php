@@ -79,17 +79,20 @@ $count= DB::table('cais')->count();
     
 		public function welcome()
 		{
+			
 			$count= DB::table('cais')->count();
+			if ($count==0){
+			return view('cais_vide');
+                }
                         $last_row=DB::table('cais')->orderBy('id', 'desc')->first();
-                $last_day=$last_row->day;
+			$last_day=$last_row->day;
 		$last_month=$last_row->month;
 		$last_année=$last_row->année;
                 $id=$last_row->id;
                 $datetime = new DateTime($last_année.'-'.$last_month.'-'.$last_day);
                 $datetime_today = new DateTime(date('Y').'-'.date('m').'-'.date('d'));
-		if ($count==0){
-			return view('cais_vide');
-                }elseif($datetime==$datetime_today){
+			
+		if($datetime==$datetime_today){
                     return redirect('/show_cais/'.$id);
                 }else{
 			return view('welcome');
@@ -165,6 +168,7 @@ $count= DB::table('cais')->count();
         'name'=>'0123456789',
 		'nom_mochtarayat_mokhtalifa'=>$request->input('nom_mochtarayat_mokhtalifa'),
 		'id_user'=>(Auth::user()->id) ]);
+					 return view('cais');
             
                  }else{
                      return view('mounassaba',['y'=>$y,'m'=>$m,'d'=>$d]);
@@ -188,7 +192,7 @@ $count= DB::table('cais')->count();
 		}else{
 		$cais=Cais::find($id);
 		 $arr=Array('cais'=>$cais);
-		$get_id=DB::table('cais')->whereBetween('id', [1, $id])->whereNotIn('name', ['0'])->orderBy('id', 'desc')->get();
+		$get_id=DB::table('cais')->whereBetween('id', [1, $id])->whereNotIn('name', ['0'])->whereNotIn('name', ['0123456789'])->orderBy('id', 'desc')->get();
 		$i=$get_id[1]->id;
 		$cais_d=Cais::find($i);
 		 $arr_d=Array('cais_d'=>$cais_d);

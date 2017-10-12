@@ -23,7 +23,7 @@
     </a>
             </div>
 <div class="container text-center">
-    
+   
     <div class="row text-center">
 
         <form action="cais" method="post" >
@@ -198,7 +198,7 @@
                 <th>الباقي في الصندوق</th>
                 <th>
 
-                    {{ $cais->ba9i_sondo9 }} ,00 دج
+                    {{ $cais->ba9i_sondo9 }},00 دج
                 </th>
 
             </tr>
