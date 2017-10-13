@@ -48,12 +48,9 @@ $count= DB::table('cais')->count();
             $newcais->mochtarayat_carte_mobilis=$request->input('mochtarayat_carte_mobilis');
             $newcais->nom_emprent=$request->input('nom_emprent');
             $newcais->cout_emprent=$request->input('cout_emprent');
+			$newcais->nom_mochtarayat_mokhtalifa=$request->input('nom_mochtarayat_mokhtalifa');
             $newcais->ba9i_sondo9=$request->input('ba9i_sondo9');
-            $newcais->cout_mochtarayat_mokhtalifa=$request->input('cout_mochtarayat_mokhtalifa');
-            $newcais->nom_mochtarayat_mokhtalifa=$request->input('nom_mochtarayat_mokhtalifa');
-            $newcais->nom_mawad_lawazim=$request->input('nom_mawad_lawazim');
-            $newcais->cout_mawad_lawazim=$request->input('cout_mawad_lawazim');
-            $newcais->id_user=Auth::user()->id;         
+			$newcais->id_user=Auth::user()->id;         
             $newcais->save();
 			$count=1;
 
@@ -104,7 +101,7 @@ $count= DB::table('cais')->count();
 				return view('chois',['y'=>$y,'m'=>$m,'d'=>$d]);
 		}
 	
-			public function nouveau_sijil($y,$m,$d,Request $request)
+		public function nouveau_sijil($y,$m,$d,Request $request)
 			{
                             if($request->isMethod('post')){
                                 		

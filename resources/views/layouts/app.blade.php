@@ -73,11 +73,11 @@
 						
 						<li {{{ (Request::is('total_sijil') ? 'class=active' : '') }}}><a href="/total_sijil"><span><span class="glyphicon glyphicon-equalizer" aria-hidden="true"></span> الجدول الشهري <span class="border"></span></span></a></li>
 						 <li class="dropdown">
-							 <a class="dropdown-toggle" data-toggle="dropdown" href="/total_sijil"><span><span class="glyphicon glyphicon-equalizer" aria-hidden="true"></span>  النقائص <span class="caret"></span></span></a>
+							 <a class="dropdown-toggle" data-toggle="dropdown" href="/total_sijil"><span><span class="glyphicon glyphicon-scissors" aria-hidden="true"></span>      النقائص    <span class="caret"></span></span></a>
         <ul class="dropdown-menu">
-          <li><a href="#">السلفيات </a></li>
-          <li><a href="#">المشتريات </a></li>
-          <li><a href="#">المواد واللوازم</a></li>
+          <li><a href="/silfiyat">السلفيات </a></li>
+          <li><a href="/mouchtarayat">المشتريات </a></li>
+          <li><a href="/mawadt">المواد واللوازم</a></li>
         </ul>
 					</li>	@endif
                                                 

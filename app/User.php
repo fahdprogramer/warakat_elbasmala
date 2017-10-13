@@ -32,4 +32,13 @@ class User extends Authenticatable
     {
         return $this->hasMany('App/Cais');
     }
+	  public function silfiyas() {
+        return $this->hasMany('App\Silfiya');
+    }
+    public function mouchtarayats() {
+         return $this->hasMany('App\Mouchtarayat');
+    }
+    public function mawades() {
+         return $this->hasMany('App\Mawad');
+    }
 }

@@ -47,3 +47,23 @@ Route::get('/last_month/{l_m}/{l_y}', 'PaginationController@last_month')->middle
 Route::get('/last_month_p/{l_m}/{l_y}', 'TablecontroleController@last_month')->middleware('auth');
 Route::get('/next_month/{n_m}/{n_y}', 'PaginationController@next_month')->middleware('auth');
 Route::get('/next_month_p/{n_m}/{n_y}', 'TablecontroleController@next_month')->middleware('auth');
+
+Route::get('/silfiyat', 'NakaisController@silfiyat')->middleware('auth');
+Route::post('/silfiyat', 'NakaisController@silfiyat')->middleware('auth');
+Route::get('/silfiya/{id}/{name}/{cout}', 'NakaisController@edit_silfiyat')->middleware('auth');
+Route::post('/silfiya/{id}/{name}/{cout}', 'NakaisController@edit_silfiyat')->middleware('auth');
+Route::get('/silfiya/{id}', 'NakaisController@delet_silfiyat')->middleware('auth');
+
+Route::get('/mawadt', 'NakaisController@mawadt')->middleware('auth');
+Route::post('/mawadt', 'NakaisController@mawadt')->middleware('auth');
+Route::get('/mawad/{id}/{name}/{cout}', 'NakaisController@edit_mawadt')->middleware('auth');
+Route::post('/mawad/{id}/{name}/{cout}', 'NakaisController@edit_mawadt')->middleware('auth');
+Route::get('/mawad/{id}', 'NakaisController@delet_mawadt')->middleware('auth');
+
+Route::get('/mouchtarayat', 'NakaisController@mouchtarayat')->middleware('auth');
+Route::post('/mouchtarayat', 'NakaisController@mouchtarayat')->middleware('auth');
+Route::get('/mouchtaraya/{id}/{name}/{cout}', 'NakaisController@edit_mouchtarayat')->middleware('auth');
+Route::post('/mouchtaraya/{id}/{name}/{cout}', 'NakaisController@edit_mouchtarayat')->middleware('auth');
+Route::get('/mouchtaraya/{id}', 'NakaisController@delet_mouchtarayat')->middleware('auth');
+
+
