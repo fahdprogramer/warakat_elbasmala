@@ -11,12 +11,7 @@
 	@php if(empty($cais->nombre_carte_mobilis_200))$cais->nombre_carte_mobilis_200=0;@endphp
 	@php if(empty($cais->nombre_carte_mobilis_100))$cais->nombre_carte_mobilis_100=0;@endphp
 	@php if(empty($cais->mochtarayat_carte_mobilis))$cais->mochtarayat_carte_mobilis=0;@endphp
-	@php if(empty($cais->nom_emprent))$cais->nom_emprent='لم يستلف أحد';@endphp
-	@php if(empty($cais->cout_emprent))$cais->cout_emprent=0;@endphp
-	@php if(empty($cais->cout_mochtarayat_mokhtalifa))$cais->cout_mochtarayat_mokhtalifa=0;@endphp
-	@php if(empty($cais->nom_mochtarayat_mokhtalifa))$cais->nom_mochtarayat_mokhtalifa='لا توجد مشتريات';@endphp
-	@php if(empty($cais->nom_mawad_lawazim))$cais->nom_mawad_lawazim='لامواد ولا لوازم';@endphp
-	@php if(empty($cais->cout_mawad_lawazim))$cais->cout_mawad_lawazim=0;@endphp
+	
         <div class="text-left" style="padding-left: 20px; ">
             <a href="/edit_day/{{$cais->id}}" class="btn btn-danger btn-lg" >
       <span class="glyphicon glyphicon-wrench" style="font-size:25px;"></span> 
@@ -157,39 +152,7 @@
             </tr>
 			</table>
 <table class="table-striped table-hover" style="text-align:center;margin: 20px;" border='3' width="100%" >
-            <tr>
-
-                <th >سلفية </th>
-                <th>
-
-                    {{ $cais->cout_emprent }},00 دج
-
-                </th>
-                <th>{{ $cais->nom_emprent }}</th>
-            </tr>
-
-
-
-
-            <tr>
-
-                <th>مشتريات مختلفة </th>
-                <th>
-
-                    {{ $cais->cout_mochtarayat_mokhtalifa }},00 دج
-                </th>
-                <th>{{ $cais->nom_mochtarayat_mokhtalifa }}</th>
-            </tr>
-            <tr>
-
-                <th >مواد ولوازم </th>
-                <th>
-
-{{ $cais->cout_mawad_lawazim }},00 دج
-
-                </th>
-                <th>{{ $cais->nom_mawad_lawazim }}</th>
-            </tr>
+          
 </table>
 <table class="table-striped table-hover" style="text-align:center;margin: 20px;" border='3' width="100%" >
 	

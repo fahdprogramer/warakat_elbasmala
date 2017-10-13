@@ -15,11 +15,7 @@ Route::get('/','TasjilControler@pr_page');
 Route::get('/cais', 'CaisController@cais')->middleware('auth');
 Route::post('/cais', 'CaisController@cais')->middleware('auth');
 
-Route::post('/cais_edit', 'CaisController@cais_edit')->middleware('auth');
-
 Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home'); //....زائد
 
 Route::get('/welcome', 'CaisController@welcome')->middleware('auth');
 

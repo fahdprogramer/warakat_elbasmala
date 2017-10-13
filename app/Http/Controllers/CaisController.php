@@ -46,9 +46,7 @@ $count= DB::table('cais')->count();
             $newcais->nombre_carte_mobilis_200=$request->input('nombre_carte_mobilis_200');
             $newcais->nombre_carte_mobilis_100=$request->input('nombre_carte_mobilis_100');
             $newcais->mochtarayat_carte_mobilis=$request->input('mochtarayat_carte_mobilis');
-            $newcais->nom_emprent=$request->input('nom_emprent');
-            $newcais->cout_emprent=$request->input('cout_emprent');
-			$newcais->nom_mochtarayat_mokhtalifa=$request->input('nom_mochtarayat_mokhtalifa');
+			$newcais->nom_mochtarayat_mokhtalifa='0';
             $newcais->ba9i_sondo9=$request->input('ba9i_sondo9');
 			$newcais->id_user=Auth::user()->id;         
             $newcais->save();
@@ -98,11 +96,17 @@ $count= DB::table('cais')->count();
 	
 		public function edit_sijil($y,$m,$d)
 			{
+			   if (Auth::user()->role!=1){
+			return redirect('/');
+		};
 				return view('chois',['y'=>$y,'m'=>$m,'d'=>$d]);
 		}
 	
 		public function nouveau_sijil($y,$m,$d,Request $request)
 			{
+			   if (Auth::user()->role!=1){
+			return redirect('/');
+		};
                             if($request->isMethod('post')){
                                 		
             $this->validate($request,['name'=>'required','mablaghe_kouli'=>'required','flixy_mobilis'=>'required','flixy_djezy'=>'required','flixy_oridoo'=>'required','ba9i_sondo9'=>'required'],['name.required'=>'من فضلك ،يجب أن تقوم بملئ حقل إسم المسجل .','mablaghe_kouli.required'=>'من فضلك ،يجب أن تقوم بملئ حقل المبلغ الكلي  .','flixy_mobilis.required'=>'من فضلك ،يجب أن تقوم بملئ حقل فلكسي موبيليس .','flixy_djezy.required'=>'من فضلك ،يجب أن تقوم بملئ حقل فلكسي جيزي .','flixy_oridoo.required'=>'من فضلك ،يجب أن تقوم بملئ حقل فلكسي أوريدو .','ba9i_sondo9.required'=>'من فضلك ،يجب أن تقوم بملئ حقل الباقي في الصندوق .',]); 
@@ -123,13 +127,8 @@ $count= DB::table('cais')->count();
 		'nombre_carte_mobilis_200'=>$request->input('nombre_carte_mobilis_200'),
 		'nombre_carte_mobilis_100'=>$request->input('nombre_carte_mobilis_100'),
 		'mochtarayat_carte_mobilis'=>$request->input('mochtarayat_carte_mobilis'),
-		'nom_emprent'=>$request->input('nom_emprent'),
-		'cout_emprent'=>$request->input('cout_emprent'),
 		'ba9i_sondo9'=>$request->input('ba9i_sondo9'),
-		'cout_mochtarayat_mokhtalifa'=>$request->input('cout_mochtarayat_mokhtalifa'),
 		'nom_mochtarayat_mokhtalifa'=>$request->input('nom_mochtarayat_mokhtalifa'),
-		'nom_mawad_lawazim'=>$request->input('nom_mawad_lawazim'),
-		'cout_mawad_lawazim'=>$request->input('cout_mawad_lawazim'),
 		'id_user'=>(Auth::user()->id)
         ]);
 		$first_row=DB::table('cais')->first();
@@ -165,7 +164,7 @@ $count= DB::table('cais')->count();
         'name'=>'0123456789',
 		'nom_mochtarayat_mokhtalifa'=>$request->input('nom_mochtarayat_mokhtalifa'),
 		'id_user'=>(Auth::user()->id) ]);
-					 return view('cais');
+					 return redirect('cais');
             
                  }else{
                      return view('mounassaba',['y'=>$y,'m'=>$m,'d'=>$d]);
@@ -173,6 +172,9 @@ $count= DB::table('cais')->count();
                     
                 }
                 public function info_mounassaba($id) {
+					   if (Auth::user()->role!=1){
+			return redirect('/');
+		};
                     $cais=Cais::find($id);
 		 $arr=Array('cais'=>$cais);
                     return view('info_mounassaba',$arr);

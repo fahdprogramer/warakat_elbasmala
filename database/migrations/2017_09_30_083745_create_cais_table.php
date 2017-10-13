@@ -15,7 +15,7 @@ class CreateCaisTable extends Migration
     {
         Schema::create('cais', function (Blueprint $table) {
             $table->increments('id');
-              $table->string('name');
+            $table->string('name');
             $table->integer('day');
 			$table->integer('month');
 			$table->integer('année');
@@ -30,13 +30,8 @@ class CreateCaisTable extends Migration
             $table->integer('nombre_carte_mobilis_200')->nullable()->default('0');
             $table->integer('nombre_carte_mobilis_100')->nullable()->default('0');
             $table->integer('mochtarayat_carte_mobilis')->nullable()->default('0');
-            $table->string('nom_emprent')->nullable();
-            $table->integer('cout_emprent')->nullable()->default('0');
             $table->integer('ba9i_sondo9');
-            $table->integer('cout_mochtarayat_mokhtalifa')->nullable()->default('0');
-            $table->text('nom_mochtarayat_mokhtalifa')->nullable();
-            $table->text('nom_mawad_lawazim')->nullable();
-            $table->integer('cout_mawad_lawazim')->nullable()->default('0');
+            $table->text('nom_mochtarayat_mokhtalifa')->nullable()->default('0');
             $table->integer('id_user')->unsigned();
             $table->foreign('id_user')->references('id')->on('users');
             $table->timestamps();

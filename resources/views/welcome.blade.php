@@ -99,39 +99,7 @@
 
             <tr>
 
-                <th colspan="2">سلفية </th>
-                <th>
-
-                    <input value="{{ old('cout_emprent') }}" class="styleinput"  id="name" name="cout_emprent" placeholder="مقدار السلفية" type="number" >
-                </th>
-				
-                <th><input value="{{ old('nom_emprent') }}" class="styleinput"  id="name" name="nom_emprent" placeholder="اسم المستلف " type="text" ></th>
-            </tr>
-
-
-
-
-            <tr>
-
-                <th colspan="2">مشتريات مختلفة </th>
-                <th>
-
-                    <input value="{{ old('cout_mochtarayat_mokhtalifa') }}" class="styleinput"  id="name" name="cout_mochtarayat_mokhtalifa" placeholder=" " type="number" >
-
-                </th>
-                <th><input value="{{ old('nom_mochtarayat_mokhtalifa') }}" class="styleinput"  id="name" name="nom_mochtarayat_mokhtalifa" placeholder=" نوع المشتريات   " type="text" ></th>
-            </tr>
-            <tr>
-
-                <th colspan="2">مواد ولوازم </th>
-                <th>
-
-                    <input value="{{ old('cout_mawad_lawazim') }}" class="styleinput"  id="name" name="cout_mawad_lawazim" placeholder=" " type="number" >
-
-                </th>
-                <th><input value="{{ old('nom_mawad_lawazim') }}" class="styleinput"  id="name" name="nom_mawad_lawazim" placeholder="  نوع المواد" type="text" ></th>
-            </tr>
-            <tr>
+              
 
                 <th colspan="2">الباقي في الصندوق</th>
                 <th>

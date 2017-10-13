@@ -72,15 +72,15 @@
 						<li {{{ (Request::is('controle') ? 'class=active' : '') }}}><a href="/controle"><span><span class="glyphicon  glyphicon-cog" aria-hidden="true"></span>    التحكم <span class="border"></span></span></a></li>
 						
 						<li {{{ (Request::is('total_sijil') ? 'class=active' : '') }}}><a href="/total_sijil"><span><span class="glyphicon glyphicon-equalizer" aria-hidden="true"></span> الجدول الشهري <span class="border"></span></span></a></li>
-						 <li class="dropdown">
+						 	@endif
+                                <li class="dropdown">
 							 <a class="dropdown-toggle" data-toggle="dropdown" href="/total_sijil"><span><span class="glyphicon glyphicon-scissors" aria-hidden="true"></span>      النقائص    <span class="caret"></span></span></a>
         <ul class="dropdown-menu">
           <li><a href="/silfiyat">السلفيات </a></li>
           <li><a href="/mouchtarayat">المشتريات </a></li>
           <li><a href="/mawadt">المواد واللوازم</a></li>
         </ul>
-					</li>	@endif
-                                                
+					</li>                
 						@endguest
 					</ul>
 				</div>
